@@ -6,7 +6,7 @@ pipeline {
     }
 
     stages {
-        stage('stage-1'){
+        stage('stage-1') {
             steps {
                 dir('01-intro') {
                     echo "This is the build number $BUILD_NUMBER of demo $DEMO"
@@ -14,9 +14,8 @@ pipeline {
                         echo "Using a multi-line shell script"
                         chmod +x ./test.sh
                         ./test.sh
-                    '''   
+                    '''
                 }
-                
             }
         }
     }
