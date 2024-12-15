@@ -1,3 +1,3 @@
-#!bin/sh
+#!/bin/sh
 
-echo "Insede script, demo $DEMO"
+echo "Inside script, demo $DEMO"
