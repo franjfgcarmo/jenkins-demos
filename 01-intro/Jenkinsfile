@@ -10,9 +10,7 @@ pipeline {
             steps {
                 dir('01-intro') {
                     echo "This is the build number $BUILD_NUMBER of demo $DEMO"
-
                     sh '''
-                        cd 01-intro
                         echo "Using a multi-line shell script"
                         chmod +x ./test.sh
                         ./test.sh
