@@ -1,5 +1,11 @@
 pipeline {
     agent any
+
+    options {
+        //Indica las marcas de tiempo en los logs de jenkins
+        timestamps()
+    }
+
     environment {
         RELEASE = '0.0.1'
     }
@@ -14,6 +20,7 @@ pipeline {
                     steps { 
                         echo "Building release ${Release} for ${STAGE_NAME} with log level ${LOG_LEVEL}"
                         sh 'sleep 1'
+                        echo "build done"
                     }
                 }
 
@@ -21,6 +28,7 @@ pipeline {
                     steps { 
                         echo "Building release ${Release} for ${STAGE_NAME} with log level ${LOG_LEVEL}"
                         sh 'sleep 3'
+                        echo "build done"
                     }
                 }
 
@@ -28,6 +36,7 @@ pipeline {
                     steps { 
                         echo "Building release ${Release} for ${STAGE_NAME} with log level ${LOG_LEVEL}"
                         sh 'sleep 10'
+                        echo "build done"
                     }
                 }
            }
