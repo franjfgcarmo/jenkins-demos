@@ -17,13 +17,13 @@ pipeline {
             }
         }
 
-        stage('Test'){
+        stage('Test') {
             steps {
                 echo "Testing release ${RELEASE}"
             }
         }
 
-        stage('Deploy'){
+        stage('Deploy') {
             input {
                 message "Deploy?"
                 ok "Do It!"
@@ -35,14 +35,12 @@ pipeline {
                     )
                 }
             }
-            steps {
-                steps{
-                    echo "Deploying release ${RELEASE} ${TARGET_ENVIRONMENT}"
-                }
+            steps {               
+                echo "Deploying release ${RELEASE} ${TARGET_ENVIRONMENT}"
             }
         }
     }
-    
+
     post {
         always {
             echo 'Print wether deploy happened or not, success or failure'
