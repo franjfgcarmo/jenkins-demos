@@ -42,6 +42,15 @@ pipeline {
                 }  
             }             
         }
+
+        stage('Publish') {
+            when {
+                expression { return params.RC }
+            }
+            steps {
+              archiveArtifacts('05-pipelines/solution/app/')
+            }             
+        }
     }
 }
 //Tiene acceso a todas las variables de entornos y los parámetros
