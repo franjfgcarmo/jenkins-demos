@@ -6,8 +6,9 @@ pipeline {
     }
 
     stages {
-        stage('stage-1') {
+        stage('stage-1') {            
             steps {
+                //Se situa sobre el directorio
                 dir('01-intro') {
                     echo "This is the build number $BUILD_NUMBER of demo $DEMO"
                     sh '''
