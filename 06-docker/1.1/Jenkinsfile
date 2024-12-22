@@ -16,22 +16,22 @@ pipeline{
             }
 
         }
-    }
-    stage('Build') {
-        steps {
-            dir('./06-docker/solution') {
-              sh '''
-                  npm install
-                  npm run build
-              '''
+        stage('Build') {
+            steps {
+                dir('./06-docker/solution') {
+                sh '''
+                    npm install
+                    npm run build
+                '''
+                }
             }
         }
-    }
-    stage('Unit test') {
-        steps {
-            dir('./06-docker/solution') {
-                sh 'npm test'
+        stage('Unit test') {
+            steps {
+                dir('./06-docker/solution') {
+                    sh 'npm test'
+                }
             }
         }
-    }
+    }   
 }
