@@ -6,12 +6,15 @@ pipeline{
     }
     stages {
         stage('Verify') {
-            sh'''
-                node --version
-                npm --version
-            '''
-            sh 'printenv'
-            sh 'ls -l "${WORKSPACE}"'
+            steps {
+                sh'''
+                    node --version
+                    npm --version
+                '''
+                sh 'printenv'
+                sh 'ls -l "${WORKSPACE}"'
+            }
+
         }
     }
     stage('Build') {
