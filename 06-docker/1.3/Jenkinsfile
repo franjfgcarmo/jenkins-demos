@@ -9,6 +9,14 @@ pipeline{
                 }                
             }
         }
+        stage('Smoke Test') {
+            steps {
+                script {
+                    container = image.run() // [2]
+                    container.stop()
+                }
+            }
+        }
         stage('docker push') {
             steps {
                script{
