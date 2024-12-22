@@ -1,0 +1,22 @@
+pipeline{
+    agent any
+
+    stages {
+        stage('docker build') {
+            steps {               
+                script{
+                    image = docker.build("franjfgcarmo/jenkins-pipeline-demos:0.0.1", '--pull 06-docker/solution')
+                }                
+            }
+        }
+        stage('docker push') {
+            steps {
+               script{
+                withDockerRegistry(url: "", credentialsId: "docker-hub") {
+                    image.push()
+                }
+               }
+            }
+        }
+    }   
+}
