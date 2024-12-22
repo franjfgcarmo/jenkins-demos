@@ -1,0 +1,32 @@
+pipeline{
+    agent docker {
+        image 'node.alpine3.12' 
+    }
+    stages {
+        stage('Verify') {
+            sh'''
+                node --version
+                npm --version
+            '''
+            sh 'printenv'
+            sh 'ls -l "${WORKSPACE}"'
+        }
+    }
+    stage('Build') {
+        steps {
+            dir('./06-docker/solution') {
+              sh '''
+                  npm install
+                  npm run build
+              '''
+            }
+        }
+    }
+    stage('Unit test') {
+        steps {
+            dir('./06-docker/solution') {
+                sh 'npm test'
+            }
+        }
+    }
+}
