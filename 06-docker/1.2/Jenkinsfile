@@ -16,12 +16,16 @@ pipeline{
         }
         stage('Build') {
             steps {
-                sh 'docker build -t franjfgcarmo/jenkins-pipeline-demos:0.0.1 .'
+                dir('./06-docker/solution') {
+                    sh 'docker build -t franjfgcarmo/jenkins-pipeline-demos:0.0.1 .'
+                }
             }
         }
         stage('Smoke Test') {
             steps {
-                sh 'docker run franjfgcarmo/jenkins-pipeline-demos:0.0.1'
+                dir('./06-docker/solution') {
+                    sh 'docker run franjfgcarmo/jenkins-pipeline-demos:0.0.1'
+                }                
             }
         }
     }   
