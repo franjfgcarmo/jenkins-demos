@@ -3,19 +3,18 @@ pipeline {
 
     stages {
         stage('Compile') {
-                  steps {
-                    dir('./calculator') {
-                        sh './calculator/gradlew compileJava'
-                    }
-                  }
-              }
+            steps {
+                dir('./calculator') {
+                    sh './gradlew compileJava'
+                }
+            }
         }
         stage('Test') {
-                steps {
-                    dir('./calculator') {
-                        sh './gradlew test'
-                    }                    
-                }
-        }
+            steps {
+                dir('./calculator') {
+                    sh './gradlew test'
+                }                    
+            }
+        }        
     }
 }
