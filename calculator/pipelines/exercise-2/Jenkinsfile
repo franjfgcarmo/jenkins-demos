@@ -1,0 +1,26 @@
+pipeline {
+    agent {
+        docker {
+            image 'gradle:6.6.1-jre14-openj9'
+        }
+    }
+
+    stages {
+        stage('Compile') {
+            steps {
+                dir('./calculator') {
+                    sh 'chmod +x gradlew'
+                    sh './gradlew compileJava'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                dir('./calculator') {
+                    sh 'chmod +x gradlew'
+                    sh './gradlew test'
+                }                    
+            }
+        }        
+    }
+}
