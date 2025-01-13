@@ -1,10 +1,9 @@
 pipeline {
     agent {
         docker {
-            image 'gradle:6.6.1-jre14-openj9'
+            image 'gradle:6.6.1-jre14-openj9' 
         }
     }
-
     stages {
         stage('Compile') {
             steps {
