@@ -6,6 +6,7 @@ pipeline {
             steps {
                 dir('./calculator') {
                     sh 'ls'
+                    sh 'chmod +x gradlew'
                     sh './gradlew compileJava'
                 }
             }
@@ -13,6 +14,7 @@ pipeline {
         stage('Test') {
             steps {
                 dir('./calculator') {
+                    sh 'chmod +x gradlew'
                     sh './gradlew test'
                 }                    
             }
