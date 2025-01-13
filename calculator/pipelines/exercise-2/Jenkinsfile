@@ -2,14 +2,13 @@ pipeline {
     agent {
         docker {
             image 'gradle:6.6.1-jre14-openj9' 
-            args '-u root:root'
         }
     }
     stages {
         stage('Compile') {
             steps {
                 dir('./calculator') {
-                    sh 'chmod +x gradlew'
+                    
                     sh './gradlew compileJava'
                 }
             }
