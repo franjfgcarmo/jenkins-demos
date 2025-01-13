@@ -8,7 +8,7 @@ pipeline {
         stage('Compile') {
             steps {
                 dir('./calculator') {
-                    
+                    sh 'chmod +x gradlew'
                     sh './gradlew compileJava'
                 }
             }
