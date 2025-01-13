@@ -2,6 +2,7 @@ pipeline {
     agent {
         docker {
             image 'gradle:6.6.1-jre14-openj9' 
+            args '-u root:root'
         }
     }
     stages {
