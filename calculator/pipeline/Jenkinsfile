@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Compile') {
+              dir('./calculator') {
+                  steps {
+                      sh './gradlew compileJava'
+                  }
+              }
+            steps {
+               
+            }
+        }
+        stage('Test') {
+            dir('./calculator') {
+                steps {
+                    sh './gradlew test'
+                }
+            }
+        }
+    }
+}
