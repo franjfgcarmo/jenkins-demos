@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Compile') {
             steps {
-                dir('./calculator/src/main/java') {
+                dir('./calculator') {
                     sh 'ls'
                     sh './gradlew compileJava'
                 }
@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                dir('./calculator/src/test/java') {
+                dir('./calculator') {
                     sh './gradlew test'
                 }                    
             }
