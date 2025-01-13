@@ -4,15 +4,15 @@ pipeline {
     stages {
         stage('Compile') {
             steps {
-                dir('./calculator') {
+                dir('./calculator/src/main/java') {
                     sh 'ls'
-                    sh 'gradlew compileJava'
+                    sh './gradlew compileJava'
                 }
             }
         }
         stage('Test') {
             steps {
-                dir('./calculator') {
+                dir('./calculator/src/test/java') {
                     sh './gradlew test'
                 }                    
             }
