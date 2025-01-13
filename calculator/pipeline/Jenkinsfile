@@ -6,7 +6,7 @@ pipeline {
             steps {
                 dir('./calculator') {
                     sh 'ls'
-                    sh './gradlew compileJava'
+                    sh 'gradlew compileJava'
                 }
             }
         }
